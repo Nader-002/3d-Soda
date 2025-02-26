@@ -1,0 +1,82 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: url("images/bg.png") no-repeat;
+    background-size: cover;
+    width: 100dvw;
+    overflow: hidden;
+}
+
+.banner {
+    height: 100dvh;
+    position: relative;
+    display: grid;
+    place-content: center;
+}
+
+.banner .product {
+    width: 260px;
+    height: 500px;
+    transition: 1s;
+    --left: 0px;
+    transition: 0.7s;
+    z-index: 1;
+}
+
+.banner .product .soda {
+    background: var(--url) var(--left) 10px repeat-x, url("images/mockup.png");
+    background-size: auto 100%;
+    background-blend-mode: multiply;
+    mask-image: url("images/mockup.png");
+    mask-size: auto 100%;
+    width: 250px;
+    aspect-ratio: 2/4;
+    transition: 1s;
+    position: absolute;
+}
+
+.banner .product:hover {
+    transform: translateY(-40px);
+    --left: -700px;
+}
+
+.banner .product .soda:nth-child(2) {
+    opacity: 0;
+}
+
+.banner .product:hover .soda:nth-child(2){
+    opacity: 1;
+}
+
+.character {
+    position: absolute;
+    inset: 0;
+}
+
+.character .character_:nth-child(1){
+    position: absolute;
+    bottom: 20px;
+    left: -240px;
+    transition: 1s;
+    rotate: 10deg;
+}
+
+.character .character_:nth-child(2){
+    position: absolute;
+    top: 0;
+    right: -240px;
+    rotate: -20deg;
+    transition: 1s;
+    rotate: 10deg;
+}
+
+.banner:has(.product:hover) .character .character_:nth-child(1) {
+    left: -200px;
+}
+
+.banner:has(.product:hover) .character .character_:nth-child(2) {
+    right: -200px;
+}
